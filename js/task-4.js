@@ -1,26 +1,49 @@
-// Метод changeUsername(newName) повинен приймати рядок (нове ім’я) в параметр newName та змінювати значення властивості username на нове. Нічого не повертає.
-// Метод updatePlayTime(hours) повинен приймати число (кількість годин) у параметр hours та збільшити на нього значення властивості playTime. Нічого не повертає.
-// Метод getInfo() має повертати рядок формату <Username> has <amount> active hours!, де <Username> — це ім’я профілю, а <amount> — кількість ігрових годин.
 
-const profile = {
-  username: 'Jacob',
-  playTime: 300,
-
-  changeUsername(newName) {
-    profile.username = newName;
-  },
-  updatePlayTime(hours) {
-    profile.playTime += hours;
-  },
-  getInfo() {
-    return `${profile.username} has ${profile.playTime} active hours!`;
-  },
+const getTotalBalanceByGender = (users, gender) => {
+  return users.filter(user => user.gender === gender).reduce((totalBalance, user) => totalBalance + user.balance, 0);
 };
+  
 
-console.log(profile.getInfo()); // "Jacob has 300 active hours!"
+ const clients = [
+	{
+    name: "Moore Hensley",
+    gender: "male",
+    balance: 2811
+  },
+  {
+    name: "Sharlene Bush",
+    gender: "female",
+    balance: 3821
+  },
+  {
+    name: "Ross Vazquez",
+    gender: "male",
+    balance: 3793
+  },
+  {
+    name: "Elma Head",
+    gender: "female",
+    balance: 2278
+  },
+  {
+    name: "Carey Barr",
+    gender: "male",
+    balance: 3951
+  },
+  {
+    name: "Blackburn Dotson",
+    gender: "male",
+    balance: 1498
+  },
+  {
+    name: "Sheree Anthony",
+    gender: "female",
+    balance: 2764
+  }
+];
 
-profile.changeUsername('Marco');
-console.log(profile.getInfo()); // "Marco has 300 active hours!"
+console.log(getTotalBalanceByGender(clients, "male")); // 12053
 
-profile.updatePlayTime(20);
-console.log(profile.getInfo()); // "Marco has 320 active hours!"
+console.log(getTotalBalanceByGender(clients, "female")); // 8863
+
+
